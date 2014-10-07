@@ -146,8 +146,6 @@ class MySettingsPage
 
         );
 
-
-
         add_settings_section(
 
             'setting_section_id', // ID
@@ -228,9 +226,6 @@ class MySettingsPage
 
             $new_input['delay_message'] = sanitize_text_field( $input['delay_message'] );
 
-        if( isset($input['ads_html_code']))
-            $new_input['ads_html_code'] = sanitize_text_field( $input['ads_html_code']);
-
         return $new_input;
 
     }
@@ -272,13 +267,12 @@ class MySettingsPage
             $outer['delay_in_second'] = "";
 
             $outer['delay_message'] = "";
-            $outer['ads_html_code'] ="";
 
         }
 
         printf(
 
-            '<textarea id="delay_in_second" name="outer_option_name[delay_in_second]">'.$outer['delay_in_second'].'</textarea>',
+            '<input type="text" id="delay_in_second" name="outer_option_name[delay_in_second]" value="'.$outer['delay_in_second'].'" />',
 
             isset( $this->options['delay_in_second'] ) ? esc_attr( $this->options['delay_in_second']) : ''
 
@@ -315,29 +309,6 @@ class MySettingsPage
             '<input type="text" id="title" name="outer_option_name[delay_message]" value="'.$outer['delay_message'].'" />',
 
             isset( $this->options['delay_message'] ) ? esc_attr( $this->options['delay_message']) : ''
-
-        );
-
-    }
-public function ads_callback()
-
-    {
-
-         try{
-
-            $outer = get_option('outer_option_name');
-
-        }catch(Exception $e){
-
-            $outer['ads_html_code'] = "";
-
-        }
-
-        printf(
-
-            '<input type="text" id="title" name="outer_option_name[ads_html_code]" value="'.$outer['ads_html_code'].'" />',
-
-            isset( $this->options['ads_html_code'] ) ? esc_attr( $this->options['ads_html_code']) : ''
 
         );
 

@@ -13,9 +13,6 @@ get_header();
 get_template_part(THEME_INCLUDES.'top');
 
 $outer = get_option('outer_option_name');
-echo '<center>';
-echo $outer['ads_html_code'];
-echo '</center>';
 echo '<center><h4>'.$outer['delay_message'].'</h4></center>
 
 <meta http-equiv="refresh" content="'.$outer['delay_in_second'].'; url='.$_GET['link'].'">';
